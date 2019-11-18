@@ -1,22 +1,46 @@
 <template>
-  <div :class="classObj" class="app-wrapper">
-    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" />
-    <div :class="{hasTagsView:needTagsView}" class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
-        <navbar />
-        <tags-view v-if="needTagsView" />
+  <div style="display: flex; flex-direction: column;overflow: hidden;height: 100%">
+    <!-- <el-menu default-active="1" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu-item index="1">处理中心</el-menu-item>
+      <el-submenu index="2">
+        <template slot="title">我的工作台</template>
+        <el-menu-item index="2-1">选项1</el-menu-item>
+        <el-menu-item index="2-2">选项2</el-menu-item>
+        <el-menu-item index="2-3">选项3</el-menu-item>
+        <el-submenu index="2-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="2-4-1">选项1</el-menu-item>
+          <el-menu-item index="2-4-2">选项2</el-menu-item>
+          <el-menu-item index="2-4-3">选项3</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="3" disabled>消息中心</el-menu-item>
+      <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+    </el-menu> -->
+    <head-nav />
+    <!--  -->
+    <div :class="classObj" class="app-wrapper">
+      <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+      <sidebar class="sidebar-container" />
+      <div :class="{hasTagsView:needTagsView}" class="main-container">
+        <div :class="{'fixed-header':fixedHeader}">
+          <navbar />
+          <tags-view v-if="needTagsView" />
+        </div>
+        <el-scrollbar style="height: 100%">
+          <app-main />
+        </el-scrollbar>
+        <right-panel v-if="showSettings">
+          <settings />
+        </right-panel>
       </div>
-      <app-main />
-      <right-panel v-if="showSettings">
-        <settings />
-      </right-panel>
     </div>
   </div>
 </template>
 
 <script>
 import RightPanel from '@/components/RightPanel'
+import HeadNav from '@/layout/headerNav'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
@@ -29,7 +53,8 @@ export default {
     RightPanel,
     Settings,
     Sidebar,
-    TagsView
+    TagsView,
+    HeadNav
   },
   mixins: [ResizeMixin],
   computed: {
