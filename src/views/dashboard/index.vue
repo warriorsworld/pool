@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard-container">
-    <component :is="currentRole" />
+    <el-scrollbar style="height: 100%">
+      <component :is="currentRole" />
+    </el-scrollbar>
   </div>
 </template>
 
@@ -29,3 +31,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .dashboard-container {
+    height: 100%;
+    overflow: hidden;
+  }
+</style>

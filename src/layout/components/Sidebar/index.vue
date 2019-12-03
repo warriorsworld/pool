@@ -4,6 +4,7 @@
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
+        :default-openeds="openedMenu"
         :collapse="isCollapse"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
@@ -12,13 +13,14 @@
         :collapse-transition="false"
         mode="vertical"
       >
-        <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
+        <sidebar-item v-for="(route, index) in active_sub_routes" :key="index" :item="route" :base-path="active_top_route" />
       </el-menu>
     </el-scrollbar>
   </div>
 </template>
 
 <script>
+import path from 'path'
 import { mapGetters } from 'vuex'
 import Logo from './Logo'
 import SidebarItem from './SidebarItem'
@@ -28,9 +30,13 @@ export default {
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([
-      'permission_routes',
+      'active_sub_routes',
+      'active_top_route',
       'sidebar'
     ]),
+    openedMenu() {
+      return this.active_sub_routes.map(item => path.resolve(this.active_top_route, item.path))
+    },
     activeMenu() {
       const route = this.$route
       const { meta, path } = route
@@ -49,6 +55,7 @@ export default {
     isCollapse() {
       return !this.sidebar.opened
     }
-  }
+  },
+  methods: {}
 }
 </script>

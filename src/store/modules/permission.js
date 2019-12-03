@@ -1,4 +1,5 @@
 import { asyncRoutes, constantRoutes } from '@/router'
+import collectionConfigRouter from '@/router/modules/collectionConfig'
 
 /**
  * Use meta.role to determine if the current user has permission
@@ -36,18 +37,28 @@ export function filterAsyncRoutes(routes, roles) {
 
 const state = {
   routes: [],
-  addRoutes: []
+  addRoutes: [],
+  activeSubRouters: [],
+  activeTopRouter: ''
 }
 
 const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes
     state.routes = constantRoutes.concat(routes)
+  },
+
+  SET_SUB_ACTIVE_ROURTERS: (state, subRouter) => {
+    state.activeSubRouters = subRouter
+  },
+
+  SET_TOP_ACTIVE_ROURTER: (state, topRouter) => {
+    state.activeTopRouter = topRouter
   }
 }
 
 const actions = {
-  generateRoutes({ commit }, roles) {
+  generateRoutes({ commit, state }, roles) {
     return new Promise(resolve => {
       let accessedRoutes
       if (roles.includes('admin')) {
@@ -57,6 +68,15 @@ const actions = {
       }
       commit('SET_ROUTES', accessedRoutes)
       resolve(accessedRoutes)
+    })
+  },
+  // 根据当前激活的顶级路由找到子路由;
+  generateTopActiveMenu({ commit, state }, menu) {
+    return new Promise(resolve => {
+      const subRouter = state.addRoutes.filter(item => item.path === menu)
+      commit('SET_TOP_ACTIVE_ROURTER', menu)
+      commit('SET_SUB_ACTIVE_ROURTERS', subRouter.length ? subRouter[0].children : [])
+      resolve(subRouter)
     })
   }
 }
