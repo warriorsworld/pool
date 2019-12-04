@@ -17,7 +17,7 @@
         :key="index"
         :is-nest="true"
         :item="child"
-        :base-path="resolvePath(child.path)"
+        :base-path="resolvePath(`${item.path}/${child.path}`)"
         class="nest-menu"
       />
     </el-submenu>

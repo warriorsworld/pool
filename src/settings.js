@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Vue Element Admin',
+  title: '西北空管局数据资源池系统',
 
   /**
    * @type {boolean} true | false

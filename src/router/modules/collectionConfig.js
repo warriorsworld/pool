@@ -16,8 +16,8 @@ const collectionConfigRouter = [
     },
     children: [
       {
-        path: 'config',
-        component: () => import('@/views/charts/keyboard'),
+        path: '',
+        component: () => import('@/views/table/dynamic-table'),
         name: 'collectionConfig',
         meta: { title: '数据采集配置', noCache: true }
       }
