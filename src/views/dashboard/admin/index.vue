@@ -1,118 +1,202 @@
 <template>
-  <div class="dashboard-editor-container">
+  <div>
+    <div class="dashboard-editor-container">
 
-    <el-row :gutter="32" style="margin-bottom:32px;">
-      <el-col :xs="24" :sm="24" :lg="19">
-        <div style="background: #fff">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">数据采集监控</h1>
-          <div style="padding: 10px">
-            <el-row :gutter="20" class="panel-group" style="margin-bottom: 10px">
-              <el-col :xs="12" :sm="12" :lg="8" class="card-panel-col">
-                <div class="card-panel" style="height: 180px; border: 1px solid #ccc" />
-              </el-col>
-              <el-col :xs="12" :sm="12" :lg="8" class="card-panel-col">
-                <div class="card-panel" style="height: 180px; border: 1px solid #ccc" />
-              </el-col>
-              <el-col :xs="12" :sm="12" :lg="8" class="card-panel-col">
-                <div class="card-panel" style="height: 180px; border: 1px solid #ccc" />
-              </el-col>
-            </el-row>
-            <el-row :gutter="20" class="panel-group">
-              <el-col :xs="12" :sm="12" :lg="8" class="card-panel-col">
-                <div class="card-panel" style="height: 180px; border: 1px solid #ccc" />
-              </el-col>
-              <el-col :xs="12" :sm="12" :lg="8" class="card-panel-col">
-                <div class="card-panel" style="height: 180px; border: 1px solid #ccc" />
-              </el-col>
-              <el-col :xs="12" :sm="12" :lg="8" class="card-panel-col">
-                <div class="card-panel" style="height: 180px; border: 1px solid #ccc" />
-              </el-col>
-            </el-row>
+      <el-row :gutter="32" style="margin-bottom:32px;">
+        <el-col :xs="24" :sm="24" :lg="19">
+          <div style="background: #fff">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">数据采集监控</h1>
+            <div style="padding: 20px">
+              <card-panel />
+            </div>
           </div>
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="5">
-        <div style="height: 440px; background: #fff">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">数据采集统计</h1>
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="32" style="margin-bottom:32px;">
-      <el-col :xs="24" :sm="24" :lg="17">
-        <div style="height: 400px; background: #fff;">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">实况</h1>
-          <div style="padding: 10px" />
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="7">
-        <div style="height: 400px; background: #fff" />
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="32" style="margin-bottom:32px;">
-      <el-col :xs="24" :sm="24" :lg="12">
-        <div style="height: 600px; background: #fff;">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">本地气候概况</h1>
-          <div style="padding: 10px" />
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="12">
-        <div style="height: 300px; background: #fff">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">月气候概况</h1>
-          <div style="padding: 10px" />
-        </div>
-        <div style="height: 300px; background: #fff">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">极端天气要素</h1>
-          <div style="padding: 10px" />
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="32" style="margin-bottom:32px;">
-      <el-col :xs="24" :sm="24" :lg="12">
-        <div style="height: 200px; background: #fff;">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">数据库服务监控(5分钟内)</h1>
-          <div style="padding: 10px" />
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="12">
-        <div style="height: 200px; background: #fff;">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">服务接口监控(5分钟内)</h1>
-          <div style="padding: 10px" />
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="32" style="margin-bottom:32px;">
-      <el-col :xs="24" :sm="24" :lg="12">
-        <div style="background: #fff;">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">基础设施监控-采集服务器</h1>
-          <div style="height: 500px; ">
-            <img style="width: 100%; height: 100%" :src="serverClusterImg">
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="5">
+          <div style="height: 456px; background: #fff; display: flex; flex-direction: column">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">数据采集统计</h1>
+            <div style="flex: 1;display: flex;flex-direction: column;">
+              <div style="flex: 1; background: rgba(71, 153, 235, 1);display: flex;">
+                <div style="flex: 1 1 0%;font-size: 64px;color: #fff;display: flex;justify-content: center;align-items: center;padding: 0 5px;">日</div>
+                <div style="flex: 2 1 0%;display: flex;flex-direction: column;margin: 0 20px;justify-content: center;color: #fff">
+                  <div style="padding: 10px; border-bottom: 1px solid #eee">文件个数：112</div>
+                  <div style="padding: 10px;">报文个数：90</div>
+                </div>
+              </div>
+              <div style="flex: 1; background: rgba(69, 161, 100, 1);display: flex;">
+                <div style="flex: 1 1 0%;font-size: 64px;color: #fff;display: flex;justify-content: center;align-items: center;padding: 0 5px;">周</div>
+                <div style="flex: 2 1 0%;display: flex;flex-direction: column;margin: 0 20px;justify-content: center;color: #fff">
+                  <div style="padding: 10px; border-bottom: 1px solid #eee">文件个数：112</div>
+                  <div style="padding: 10px;">报文个数：90</div>
+                </div>
+              </div>
+              <div style="flex: 1; background: rgba(209, 103, 103, 1);display: flex;">
+                <div style="flex: 1 1 0%;font-size: 64px;color: #fff;display: flex;justify-content: center;align-items: center;padding: 0 5px;">月</div>
+                <div style="flex: 2 1 0%;display: flex;flex-direction: column;margin: 0 20px;justify-content: center;color: #fff">
+                  <div style="padding: 10px; border-bottom: 1px solid #eee">文件个数：112</div>
+                  <div style="padding: 10px;">报文个数：90</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="12">
-        <div style="background: #fff;">
-          <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">全国</h1>
-          <div style="padding: 10px;height: 500px">
-            <div id="china" ref="map" style="height: 100%;" />
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="32" style="margin-bottom:32px;">
+        <el-col :xs="24" :sm="24" :lg="17">
+          <div style="height: 400px; background: #fff;">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">实况</h1>
+            <div style="padding: 10px" />
           </div>
-        </div>
-      </el-col>
-    </el-row>
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="7">
+          <div>
+            <el-button-group style="display: flex;">
+              <el-button :class="{'activeHeader': activeIndex === 0}" style="flex: 1;height: 50px;background: #ccc;border-color: #ccc;border-radius: 0" type="primary">自观数据</el-button>
+              <el-button :class="{'activeHeader': activeIndex === 1}" style="flex: 1;height: 50px;background: #ccc;border-color: #ccc;border-radius: 0" type="primary">雷达拼图</el-button>
+              <el-button :class="{'activeHeader': activeIndex === 2}" style="flex: 1;height: 50px;background: #ccc;border-color: #ccc;border-radius: 0" type="primary">卫星云图</el-button>
+            </el-button-group>
+            <el-carousel height="350px" :initial-index="0" @change="loopChange">
+              <el-carousel-item v-for="item in images" :key="item" style="flex: 1">
+                <img style="width: 100%; height:100%" :src="item">
+              </el-carousel-item>
+            </el-carousel>
+          </div>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="32" style="margin-bottom:32px;">
+        <el-col :xs="24" :sm="24" :lg="12">
+          <div style="background: #fff;">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">本地气候概况</h1>
+            <div style="padding: 10px">
+              <div v-for="item in 4" :key="item" style="padding: 26px 10px; display: flex;flex-direction: row;align-items: center;box-shadow: rgba(0,0,0,0.1) 0px 5px 10px 0px">
+                <img style="width: 125px; height: 100px; margin-right: 15px" :src="testImg2">
+                <div style="flex: 1; height: 99px;align-items: center;display: flex">
+                  春季回暖期（4月1～30日）：平均气温15.2℃，4月上、中旬常有较强降温天气，下旬温度迅速回升。平均相对湿度为64.5%， 4月内各旬相对湿度分布比较均匀。
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="12">
+          <div style="background: #fff">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">月气候概况</h1>
+            <div style="padding: 10px">
+              <el-table
+                :cell-style="{padding: '6px 0', textAlign: 'center'}"
+                :header-cell-style="{padding: '6px 0', textAlign: 'center'}"
+                :data="tableData.filter((item, index) => index < 5)"
+                stripe
+                style="width: 100%"
+              >
+                <el-table-column
+                  prop="date"
+                  label="要素"
+                  width="180"
+                />
+                <el-table-column
+                  prop="name"
+                  label="最大出现概率"
+                  width="180"
+                />
+                <el-table-column
+                  prop="address"
+                  label="次出现概率"
+                />
+              </el-table>
+            </div>
+          </div>
+          <div style="background: #fff">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">极端天气要素</h1>
+            <div style="padding: 10px">
+              <el-table
+                :cell-style="{padding: '6px 0', textAlign: 'center'}"
+                :header-cell-style="{padding: '6px 0', textAlign: 'center'}"
+                :data="tableData"
+                stripe
+                style="width: 100%"
+              >
+                <el-table-column
+                  prop="date"
+                  label="要素"
+                  width="180"
+                />
+                <el-table-column
+                  prop="name"
+                  label="历史最低"
+                  width="140"
+                />
+                <el-table-column
+                  prop="address"
+                  label="历史最高"
+                  width="220"
+                />
+                <el-table-column
+                  prop="average"
+                  label="平均"
+                />
+              </el-table>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="32" style="margin-bottom:32px;">
+        <el-col :xs="24" :sm="24" :lg="12">
+          <div style="height: 220px; background: #fff;display: flex; flex-direction: column">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">数据库服务监控(5分钟内)</h1>
+            <div style="display: flex;flex-direction: row;flex: 1">
+              <circle-chart circle-title="正在查询" style="flex: 1" :show-value="100" color="#299bcd" />
+              <circle-chart circle-title="查询结束" style="flex: 1" :show-value="300" color="#fdc30d" />
+              <circle-chart circle-title="全部接口" style="flex: 1" :show-value="100" color="#12cd5c" />
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="12">
+          <div style="height: 220px; background: #fff;display: flex; flex-direction: column">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">服务接口监控(5分钟内)</h1>
+            <div style="display: flex;flex-direction: row;flex: 1">
+              <circle-chart circle-title="调用者" style="flex: 1" :show-value="100" color="#299bcd" />
+              <circle-chart circle-title="调用服务数" style="flex: 1" :show-value="200" color="#fdc30d" />
+              <circle-chart circle-title="调用次数" style="flex: 1" :show-value="100" color="#12cd5c" />
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="32" style="margin-bottom:32px;">
+        <el-col :xs="24" :sm="24" :lg="12">
+          <div style="background: #fff;">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">基础设施监控-采集服务器</h1>
+            <div style="height: 500px; ">
+              <img style="width: 100%; height: 100%" :src="serverClusterImg">
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="12">
+          <div style="background: #fff;">
+            <h1 style="height: 50px;background: #ccc;line-height: 50px;color: #fff; padding-left: 20px;font-size: 16px;margin: 0">全国</h1>
+            <div style="padding: 10px;height: 500px">
+              <div id="china" ref="map" style="height: 100%;" />
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
 <script>
 import PanelGroup from './components/PanelGroup'
+import CardPanel from './components/CardPanel'
+import CircleChart from './components/CircleChart'
 import RaddarChart from './components/RaddarChart'
 import PieChart from './components/PieChart'
 import BarChart from './components/BarChart'
 import TransactionTable from './components/TransactionTable'
 import TodoList from './components/TodoList'
 import BoxCard from './components/BoxCard'
+import Footer from './components/Footer'
 
 import echarts from 'echarts'
 import china from '@/utils/china.js'
@@ -140,6 +224,9 @@ export default {
   name: 'DashboardAdmin',
   components: {
     PanelGroup,
+    CardPanel,
+    CircleChart,
+    Footer,
     RaddarChart,
     PieChart,
     BarChart,
@@ -149,8 +236,98 @@ export default {
   },
   data() {
     return {
+      activeIndex: 0,
       serverClusterImg: require('@/assets/sys_images/u1095.jpg'),
+      testImg: require('@/assets/sys_images/u748.png'),
+      testImg2: require('@/assets/sys_images/u1353.png'),
+      images: [
+        require('@/assets/sys_images/u550.png'),
+        require('@/assets/sys_images/u554.png'),
+        require('@/assets/sys_images/u1044.png')
+      ],
+      tableData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄',
+        average: 2
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1517 弄',
+        average: 2
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄',
+        average: 6
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1516 弄',
+        average: 6
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1517 弄',
+        average: 2
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄',
+        average: 6
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1516 弄',
+        average: 6
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1516 弄',
+        average: 6
+      }],
       lineChartData: lineChartData.newVisitis,
+      circleOptons: {
+        tooltip: {
+          trigger: 'item',
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
+        },
+        legend: {
+          orient: 'vertical',
+          x: 'center',
+          y: 'center',
+          data: ['335']
+        },
+        series: [
+          {
+            name: '访问来源',
+            type: 'pie',
+            radius: ['75%', '80%'],
+            avoidLabelOverlap: false,
+            label: {
+              normal: {
+                show: false,
+                position: 'center'
+              },
+              emphasis: {
+                show: true,
+                textStyle: {
+                  fontSize: '10',
+                  fontWeight: 'bold'
+                }
+              }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            data: [
+              { value: 335, name: '335' }
+            ]
+          }
+        ]
+      },
       mapOption: {
         grid: {
           top: 0,
@@ -162,9 +339,6 @@ export default {
           show: false,
           min: 1,
           max: 34,
-          text: ['High', 'Low'],
-          realtime: false,
-          calculable: true,
           inRange: {
             color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
           }
@@ -174,12 +348,12 @@ export default {
           mapType: 'china',
           label: {
             normal: {
-              show: true, // 显示省份标签
+              show: true,
               textStyle: {
                 color: 'blue'
-              } // 省份标签字体颜色
+              }
             },
-            emphasis: { // 对应的鼠标悬浮效果
+            emphasis: {
               show: false,
               textStyle: {
                 color: '#800080'
@@ -190,9 +364,9 @@ export default {
           zoom: 1.2,
           itemStyle: {
             normal: {
-              borderWidth: 0.5, // 区域边框宽度
-              borderColor: '#009fe8', // 区域边框颜色
-              areaColor: '#ffefd5' // 区域颜色
+              borderWidth: 0.5,
+              borderColor: '#009fe8',
+              areaColor: '#ffefd5'
             },
             emphasis: {
               borderWidth: 0.5,
@@ -235,58 +409,29 @@ export default {
             { name: '台湾', selected: false, value: 32 },
             { name: '香港', selected: false, value: 33 },
             { name: '澳门', selected: false, value: 34 }
-          ] // 各省地图颜色数据依赖value
+          ]
         }]
-        // dataRange: {
-        //     x: '-1000 px', //图例横轴位置
-        //     y: '-1000 px', //图例纵轴位置
-        //     splitList: [
-        //         { start: 1, end: 1, label: '北京', color: '#cfc5de' },
-        //         { start: 2, end: 2, label: '天津', color: '#f1ebd1' },
-        //         { start: 3, end: 3, label: '上海', color: '#feffdb' },
-        //         { start: 4, end: 4, label: '重庆', color: '#e0cee4' },
-        //         { start: 5, end: 5, label: '河北', color: '#fde8cd' },
-        //         { start: 6, end: 6, label: '河南', color: '#e4f1d7' },
-        //         { start: 7, end: 7, label: '云南', color: '#fffed7' },
-        //         { start: 8, end: 8, label: '辽宁', color: '#e4f1d7' },
-        //         { start: 9, end: 9, label: '黑龙江', color: '#e4f1d7' },
-        //         { start: 10, end: 10, label: '湖南', color: '#fffed7' },
-        //         { start: 11, end: 11, label: '安徽', color: '#fffed8' },
-        //         { start: 12, end: 12, label: '山东', color: '#dccee7' },
-        //         { start: 13, end: 13, label: '新疆', color: '#fffed7' },
-        //         { start: 14, end: 14, label: '江苏', color: '#fce8cd' },
-        //         { start: 15, end: 15, label: '浙江', color: '#ddceeb' },
-        //         { start: 16, end: 16, label: '江西', color: '#e4f1d3' },
-        //         { start: 17, end: 17, label: '湖北', color: '#fde8cd' },
-        //         { start: 18, end: 18, label: '广西', color: '#fde8cd' },
-        //         { start: 19, end: 19, label: '甘肃', color: '#fde8cd' },
-        //         { start: 20, end: 20, label: '山西', color: '#fffdd6' },
-        //         { start: 21, end: 21, label: '内蒙古', color: '#ddcfe6' },
-        //         { start: 22, end: 22, label: '陕西', color: '#fad8e9' },
-        //         { start: 23, end: 23, label: '吉林', color: '#fce8cd' },
-        //         { start: 24, end: 24, label: '福建', color: '#fad8e8' },
-        //         { start: 25, end: 25, label: '贵州', color: '#fad8e8' },
-        //         { start: 26, end: 26, label: '广东', color: '#ddcfe8' },
-        //         { start: 27, end: 27, label: '青海', color: '#fad8e9' },
-        //         { start: 28, end: 28, label: '西藏', color: '#ddcfe6' },
-        //         { start: 29, end: 29, label: '四川', color: '#e4f1d5' },
-        //         { start: 30, end: 30, label: '宁夏', color: '#fefcd5' },
-        //         { start: 31, end: 31, label: '海南', color: '#fad8e9' },
-        //         { start: 32, end: 32, label: '台湾', color: '#fce8cd' },
-        //         { start: 33, end: 33, label: '香港', color: '#dc9bbb' },
-        //         { start: 34, end: 34, label: '澳门', color: '#e0f7cc' }
-        //     ]
-        // }
       }
     }
   },
   mounted() {
     const chinaMap = echarts.init(this.$refs.map)
     chinaMap.setOption(this.mapOption)
+
+    // const circle1 = echarts.init(this.$refs.circle1);
+    // circle1.setOption(this.circleOptons);
+    // const circle2 = echarts.init(this.$refs.circle2);
+    // circle2.setOption(this.circleOptons);
+    // const circle3 = echarts.init(this.$refs.circle3);
+    // circle3.setOption(this.circleOptons);
   },
   methods: {
     handleSetLineChartData(type) {
       this.lineChartData = lineChartData[type]
+    },
+    loopChange(value) {
+      debugger
+      this.activeIndex = value
     }
   }
 }
@@ -297,6 +442,7 @@ export default {
   padding: 32px 80px;
   background-color: rgb(240, 242, 245);
   position: relative;
+  color: #666;
 
   .github-corner {
     position: absolute;
@@ -310,6 +456,9 @@ export default {
     padding: 16px 16px 0;
     margin-bottom: 32px;
   }
+}
+.activeHeader {
+  color: green
 }
 
 @media (max-width:1024px) {

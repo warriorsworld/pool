@@ -16,7 +16,7 @@ const backStageConfigRouter = [
     children: [
       {
         path: 'user-list',
-        component: () => import('@/views/charts/keyboard'),
+        component: () => import('@/views/icons/index'),
         name: 'user-list',
         meta: { title: '用户列表', noCache: true }
       },
