@@ -4,7 +4,7 @@
       <div class="card-panel" style="display: flex;padding: 10px">
         <div style="width: 100px; height: 100%;display: flex;flex-direction: column; align-items: center">
           <div style="width: 100%;height: 30px;background: #0099ff;border-top-right-radius: 14px;font-size: 14px;color: #fff;line-height: 30px;padding-left: 5px;margin-bottom: 5px">民航气象报文</div>
-          <img style="height: 118px; width: 89px" :src="testImg">
+          <img style="height: 119px; width: 89px" :src="testImg">
         </div>
         <div style="flex: 1;display: flex;flex-direction: column">
           <div style="height: 30px;display: flex;flex-direction: row;justify-content: space-between;padding: 0 0 0 10px;align-items: center;">
